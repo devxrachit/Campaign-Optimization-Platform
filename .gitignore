@@ -1,0 +1,10 @@
+All Csv Files/p5_features.csv
+All Csv Files/p1_clean.csv
+All Csv Files/p5_*.csv
+All Csv Files/p1_*.csv
+node_modules/
+build/
+*.csv
+*.html linguist-detectable=false
+*.css linguist-detectable=false
+*.js linguist-vendored=true
