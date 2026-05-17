@@ -22,7 +22,7 @@
 - [Quick Start](#-quick-start)
 - [Tech Stack](#-tech-stack)
 - [Project Status](#-project-status)
-- 
+ 
 
 ---
 
@@ -180,7 +180,7 @@ Excel Dashboard
 **Prerequisites:** Python 3.11+, Git
 ```bash
 # 1. Clone the repo
-git clone https://github.com/Ashutosh-AIBOT/social-media-campaign-analytics.git
+git clone https://github.com/Alphax81/social-media-campaign-analytics.git
 cd social-media-campaign-analytics
 
 # 2. Create virtual environment
