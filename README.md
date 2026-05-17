@@ -162,7 +162,7 @@ Excel Dashboard
 
 ---
 
-## 📐 Key Metrics Explained
+## 📐 Key Metrics
 
 | Metric | Formula | What It Tells You |
 |--------|---------|------------------|
