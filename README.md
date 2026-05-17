@@ -22,8 +22,7 @@
 - [Quick Start](#-quick-start)
 - [Tech Stack](#-tech-stack)
 - [Project Status](#-project-status)
-- [Links](#-links)
-- [Author](#-author)
+- 
 
 ---
 
@@ -282,27 +281,7 @@ Social-Media-Ads-Analysis/
 | Excel Dashboard | ✅ Complete |
 
 ---
-## 🌐 Links
-
-| Resource | URL |
-|----------|-----|
-| 🚀 Live Demo | [forecast-x-frontend-vz8c.vercel.app](https://forecast-x-frontend-vz8c.vercel.app/) |
-| 📦 Dataset | [Marketing Campaign Performance — Kaggle](https://www.kaggle.com/datasets/manishabhatt22/marketing-campaign-performance-dataset) |
-| 💼 Portfolio | [ashutosh-portfolio-kappa.vercel.app](https://ashutosh-portfolio-kappa.vercel.app/) |
-| 🐙 GitHub | [github.com/Ashutosh-AIBOT](https://github.com/Ashutosh-AIBOT) |
-| 🔗 LinkedIn | [linkedin.com/in/ashutosh1975271](https://www.linkedin.com/in/ashutosh1975271/) |
----
-
-## 👤 Author
-
-**Ashutosh**
-B.Tech Electronics Engineering · CGPA 7.5 · Batch 2026
-[GitHub](https://github.com/Ashutosh-AIBOT) · [LinkedIn](https://www.linkedin.com/in/ashutosh1975271/) · [Portfolio](https://ashutosh-portfolio-kappa.vercel.app/)
-
----
 
 > *"5 platforms. Every rupee tracked.*
 > *This is what real marketing analytics looks like."*
->
-> — Ashutosh, building this from zero.
 ```
