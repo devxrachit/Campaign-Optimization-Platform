@@ -8,11 +8,6 @@
 
 ---
 
-🌐 **Live Demo:** [forecast-x-frontend-vz8c.vercel.app](https://forecast-x-frontend-vz8c.vercel.app/)
-📦 **Dataset:** [Marketing Campaign Performance — Kaggle](https://www.kaggle.com/datasets/manishabhatt22/marketing-campaign-performance-dataset)
-👤 **Author:** [Ashutosh — GitHub](https://github.com/Ashutosh-AIBOT) · [LinkedIn](https://www.linkedin.com/in/ashutosh1975271/)
-💼 **Portfolio:** [ashutosh-portfolio-kappa.vercel.app](https://ashutosh-portfolio-kappa.vercel.app/)
-
 
 ---
 
