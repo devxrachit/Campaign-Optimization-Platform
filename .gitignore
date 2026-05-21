@@ -25,6 +25,15 @@ build/
 ui/dist/
 ui/node_modules/
 
+# Claude Code internals
+.claude/
+
+# Vercel
+.vercel/
+
+# Temp scripts
+fix_*.py
+
 # GitHub Linguist overrides
 *.html linguist-detectable=false
 *.css linguist-detectable=false

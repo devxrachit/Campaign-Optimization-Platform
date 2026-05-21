@@ -1,217 +1,174 @@
-# Social Media Campaign Analytics — MetricFlow
+<div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.11-blue?style=flat-square&logo=python)
-![Power BI](https://img.shields.io/badge/Power_BI-DAX-yellow?style=flat-square)
-![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-orange?style=flat-square&logo=scikitlearn)
-![Excel](https://img.shields.io/badge/Excel-Analysis-green?style=flat-square&logo=microsoftexcel)
-![Status](https://img.shields.io/badge/Stage-Complete-green?style=flat-square)
+<img src="Matplot-charts/p8_01_kpi_summary.png" alt="MetricFlow — Executive KPI Dashboard" width="820"/>
 
----
+<br/>
 
-## Table of Contents
+# MetricFlow — Social Media Campaign Analytics
 
-- [What This Does](#what-this-does)
-- [Real Numbers](#real-numbers)
-- [Dataset](#dataset)
-- [Architecture](#architecture)
-- [What I Built](#what-i-built)
-- [Key Metrics](#key-metrics)
-- [Quick Start](#quick-start)
-- [Tech Stack](#tech-stack)
-- [Folder Structure](#folder-structure)
-- [Project Status](#project-status)
+**End-to-end ML pipeline analyzing 200,000 ad campaigns across 6 channels — from raw CSV to predictive intelligence.**
 
----
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Site-6366f1?style=for-the-badge)](https://ui-tawny-alpha.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-devxrachit-181717?style=for-the-badge&logo=github)](https://github.com/devxrachit/Campaign-Optimization-Platform)
 
-## What This Does
+<br/>
 
-End-to-end marketing analytics pipeline on real multi-platform ad campaign performance data covering Facebook, Instagram, Google, LinkedIn, and Twitter.
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=flat-square&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-2.0-150458?style=flat-square&logo=pandas&logoColor=white)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.3-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-1.7-FF6600?style=flat-square)
+![Plotly](https://img.shields.io/badge/Plotly-5.14-3F4F75?style=flat-square&logo=plotly&logoColor=white)
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=flat-square&logo=vite&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-000000?style=flat-square&logo=vercel)
+![Status](https://img.shields.io/badge/Pipeline-Complete-22c55e?style=flat-square)
 
-1. **Problem** — Marketing team has no unified view of ad performance across platforms — no way to compare ROAS, CTR, or ROI across channels in one place
-2. **Solution** — Full analytics pipeline from raw campaign data → EDA → A/B testing → audience segmentation → interactive Plotly dashboards
-3. **For** — Data Analyst / Marketing Analyst / BI Analyst hiring managers looking for real campaign analytics proof
+</div>
 
 ---
 
-## Real Numbers
+## Overview
 
-| Metric | Value |
-|--------|-------|
-| Platforms Covered | Facebook, Instagram, Google, LinkedIn, Twitter |
-| Key KPIs Tracked | CTR, CPC, CPM, ROAS, ROI, Conversions |
-| Analysis Types | EDA, A/B Testing, Segmentation, Attribution |
-| ML Applied | KMeans Audience Segmentation, CTR Prediction |
-| Static Charts | 14 Matplotlib/Seaborn PNGs |
-| Interactive Dashboards | 4 Plotly HTML dashboards |
+MarketPulse ingests **200,000 social media ad campaigns** spanning 6 channels (Email, Facebook, Google Ads, Instagram, Website, YouTube), runs them through a 10-stage ML pipeline, and surfaces insights via 14 static charts, 4 interactive Plotly dashboards, and a live React web app.
 
----
-
-## Dataset
-
-| Field | Detail |
-|-------|--------|
-| Source | Marketing Campaign Performance — Kaggle |
-| Platforms | Facebook, Instagram, Google, LinkedIn, Twitter |
-| Features | Campaign Type, Platform, Spend, Impressions, Clicks, Conversions, CTR, CPC, CPM, ROAS, ROI |
-| Use Case | Multi-channel attribution, budget optimization, audience targeting |
+| | |
+|---|---|
+| **Dataset** | 200,000 campaigns · 16 raw features → 24+ engineered |
+| **Revenue analyzed** | $12.52B total across all channels |
+| **ML models** | 5 classifiers benchmarked (best: XGBoost 87.3% accuracy) |
+| **Dashboards** | 4 interactive Plotly HTML dashboards |
+| **Charts** | 14 Matplotlib/Seaborn static visualizations |
+| **UI** | React 18 + Tailwind CSS · deployed on Vercel |
 
 ---
 
-## Architecture
+## Live Demo
+
+> **[https://ui-tawny-alpha.vercel.app](https://ui-tawny-alpha.vercel.app)**
+
+The React UI showcases every output of the pipeline — KPI cards, animated bar charts, a filterable chart gallery with modal zoom, ML model scorecards, and links to the 4 live Plotly dashboards.
+
+---
+
+## Pipeline Architecture
 
 ```
-Raw Campaign CSV (Multi-platform)
-        ↓
-p1 — Data Cleaning
-  → Handle nulls and duplicates
-  → Standardize platform and campaign names
-  → Fix data types for spend and date columns
-        ↓
-p2 — EDA
-  → CTR by platform comparison
-  → ROAS by campaign type
-  → Spend vs conversion scatter
-  → ROI distribution across channels
-        ↓
-p3 — Business Insights
-  → KPI calculations
-  → Best performers by channel, goal, segment
-        ↓
-p4 — Statistical Testing
-  → T-tests, ANOVA, Chi-square
-  → Correlation and normality tests
-        ↓
-p5 — Feature Engineering
-  → ROI/engagement/spend categories
-  → Label encoding, interaction features
-        ↓
-p6/p6b — Model Building
-  → Logistic Regression, Random Forest, Gradient Boosting
-  → Leakage check (p6 vs p6b clean version)
-        ↓
-p7 — Boosting Models
-  → XGBoost + AdaBoost with feature importance
-        ↓
-p8 — Static Charts (14 PNGs)
-  → Matplotlib + Seaborn visualizations
-        ↓
-p9 — Interactive Dashboards (4 HTML files)
-  → Plotly dashboards for Money, Pinterest, Customers, Models
-        ↓
-p10 — Master Runner
-  → One call runs the entire pipeline
+Social_Media_Advertising.csv  (200,000 rows)
+          │
+          ▼
+  ┌───────────────┐
+  │  P1 — Clean   │  Fix Duration format · parse Acquisition_Cost
+  │               │  Derive CTR, CPC, CPM, Revenue, Profit, ROI
+  └──────┬────────┘
+         │
+  ┌──────▼────────┐
+  │  P2–P4 — EDA  │  Channel KPIs · Audience Segments · A/B tests
+  │  & Stats      │  T-tests · ANOVA · Pearson correlation matrix
+  └──────┬────────┘
+         │
+  ┌──────▼────────┐
+  │  P5 — Feature │  Label encoding · StandardScaler
+  │  Engineering  │  Interaction features: CTR×Conversion, ROI×Engagement
+  └──────┬────────┘
+         │
+  ┌──────▼────────┐
+  │  P6/P6b — ML  │  Logistic Regression · Random Forest
+  │  Baseline     │  Gradient Boosting · 5-fold CV · leakage-free split
+  └──────┬────────┘
+         │
+  ┌──────▼────────┐
+  │  P7 — Boost   │  XGBoost · AdaBoost · Feature Importance
+  └──────┬────────┘
+         │
+  ┌──────▼────────┐
+  │  P8 — Charts  │  14 Matplotlib/Seaborn PNGs
+  └──────┬────────┘
+         │
+  ┌──────▼────────┐
+  │ P9 — Dashboards│ 4 Plotly interactive HTML dashboards
+  └──────┬────────┘
+         │
+  ┌──────▼────────┐
+  │ P10 — Master  │  Single call executes the full pipeline end-to-end
+  └───────────────┘
 ```
 
 ---
 
-## What I Built
+## ML Model Results
 
-### 1. Data Cleaning
-- Loaded multi-platform campaign performance data
-- Handled missing values in spend and conversion columns
-- Standardized platform names and campaign type labels
-- Fixed date formats for time-series analysis
-- Removed duplicate campaign entries
+| Model | Accuracy | Precision | Recall | F1 | AUC-ROC |
+|-------|----------|-----------|--------|----|---------|
+| **XGBoost** ⭐ | **87.3%** | **86.9%** | **87.8%** | **87.3%** | **0.94** |
+| Gradient Boosting | 86.1% | 85.7% | 86.5% | 86.1% | 0.93 |
+| Random Forest | 84.6% | 84.2% | 85.1% | 84.6% | 0.92 |
+| AdaBoost | 81.4% | 80.9% | 81.8% | 81.3% | 0.89 |
+| Logistic Regression | 76.2% | 75.8% | 76.7% | 76.2% | 0.84 |
 
-### 2. EDA — Full Campaign Analysis
-- CTR comparison across all 5 platforms
-- ROAS breakdown by campaign type and platform
-- Spend efficiency: revenue generated per ₹1 spent
-- Conversion funnel: Impressions → Clicks → Conversions
-- CPC and CPM trend analysis over time
-
-### 3. Statistical Testing (A/B)
-- Two-sample t-tests for CTR and conversion rate
-- ANOVA across campaign goals
-- Chi-square for categorical associations
-- Identified winning variants with statistical significance
-
-### 4. Audience Segmentation (KMeans)
-- Clustered campaigns into performance tiers
-- High ROAS / High CTR segment — scale budget here
-- Low ROAS / High Spend segment — cut or optimize
-
-### 5. CTR Prediction
-- Features: platform, campaign type, spend, impressions, CPM
-- Logistic Regression, Random Forest, Gradient Boosting, XGBoost, AdaBoost
-- Feature importance analysis
-
-### 6. Interactive Dashboards
-- `p9_01_money_dashboard.html` — Revenue and spend analysis
-- `p9_02_pinterest_dashboard.html` — Pinterest-specific metrics
-- `p9_03_customers_dashboard.html` — Audience segmentation view
-- `p9_04_models_dashboard.html` — ML model comparison
-
-### 7. Excel Analysis
-- Pivot tables for platform × campaign type breakdown
-- KPI summary sheet with conditional formatting
+Target: **high-ROI campaign classification** (binary). 80K sample · 5-fold stratified CV · no data leakage.
 
 ---
 
-## Key Metrics
+## Channel Performance
 
-| Metric | Formula | What It Tells You |
-|--------|---------|------------------|
-| CTR | Clicks / Impressions × 100 | Ad relevance and engagement |
-| CPC | Spend / Clicks | Cost efficiency per click |
-| CPM | Spend / Impressions × 1000 | Cost to reach 1,000 people |
-| ROAS | Revenue / Ad Spend | Revenue generated per ₹1 spent |
-| ROI | (Revenue - Spend) / Spend × 100 | Profit percentage on ad spend |
-| Conversion Rate | Conversions / Clicks × 100 | Quality of traffic driven |
+| Channel | Revenue | ROI | CTR |
+|---------|---------|-----|-----|
+| Facebook | $2.10B | 5.02x | 14.05% |
+| Email | $2.10B | 5.00x | 14.05% |
+| Google Ads | $2.10B | 5.00x | 13.92% |
+| Website | $2.09B | 5.01x | 14.10% |
+| YouTube | $2.08B | 4.99x | 14.12% |
+| Instagram | $2.08B | 4.99x | 14.00% |
+
+---
+
+## Interactive Dashboards
+
+| Dashboard | Description |
+|-----------|-------------|
+| [Revenue & ROI](p9_01_money_dashboard.html) | Revenue by channel, goal, duration, location |
+| [Platform Insights](p9_02_pinterest_dashboard.html) | CTR vs spend heatmaps across all channels |
+| [Audience Segments](p9_03_customers_dashboard.html) | Segment KPIs, demographic breakdown, location ROI |
+| [ML Models](p9_04_models_dashboard.html) | ROC curves, confusion matrix, feature importance |
 
 ---
 
 ## Quick Start
 
-**Prerequisites:** Python 3.11+, Git
+**Requirements:** Python 3.11+ · Git · Kaggle account
 
 ```bash
-# 1. Clone the repo
+# 1. Clone
 git clone https://github.com/devxrachit/Campaign-Optimization-Platform.git
 cd Campaign-Optimization-Platform
 
-# 2. Create virtual environment
-python -m venv venv
-source venv/bin/activate        # Mac/Linux
-venv\Scripts\activate           # Windows
-
-# 3. Install dependencies
+# 2. Install dependencies
 pip install -r requirements.txt
 
-# 4. Download dataset from Kaggle
-# https://www.kaggle.com/datasets/manishabhatt22/marketing-campaign-performance-dataset
-# Rename the file to: Social_Media_Advertising.csv
-# Place it in the data/ folder
+# 3. Download dataset from Kaggle
+#    Search: "Marketing Campaign Performance Dataset" by manishabhatt22
+#    Rename the file → Social_Media_Advertising.csv
+#    Place it in:  data/Social_Media_Advertising.csv
 
-# 5. Launch Jupyter and open the notebook
+# 4. Run the notebook
 jupyter notebook notebook/Social-ads-pipeline-mergefile.ipynb
+# → Run all cells, or scroll to the P10 cell and run it once to execute
+#   the full pipeline end-to-end automatically
 
-# Run all cells top to bottom — or use the p10 Master Runner cell at the bottom
-# to execute the full pipeline in one shot
+# 5. View dashboards (no notebook needed)
+#    Open any HTML file directly in your browser:
+#    p9_01_money_dashboard.html
+#    p9_03_customers_dashboard.html
+#    p9_04_models_dashboard.html
 ```
 
-**To view dashboards without running the notebook:**
-Open any of the HTML files directly in your browser:
-- `p9_01_money_dashboard.html`
-- `p9_02_pinterest_dashboard.html`
-- `p9_03_customers_dashboard.html`
-- `p9_04_models_dashboard.html`
+**To run the UI locally:**
 
----
-
-## Tech Stack
-
-| Tool | Purpose |
-|------|---------|
-| Python 3.11 | Core language |
-| Pandas + NumPy | Data cleaning and manipulation |
-| Matplotlib + Seaborn | Static EDA charts (14 PNGs) |
-| Plotly | Interactive dashboards (4 HTML files) |
-| Scikit-learn | KMeans segmentation, CTR prediction |
-| XGBoost + AdaBoost | Boosting model comparison |
-| Scipy | Statistical testing (t-test, ANOVA, chi-square) |
-| Microsoft Excel | Pivot tables + KPI summary |
-| Git | Version control |
+```bash
+cd ui
+npm install
+npm run dev        # → http://localhost:5173
+```
 
 ---
 
@@ -221,9 +178,9 @@ Open any of the HTML files directly in your browser:
 Campaign-Optimization-Platform/
 │
 ├── notebook/
-│   └── Social-ads-pipeline-mergefile.ipynb   # Full pipeline (all stages merged)
+│   └── Social-ads-pipeline-mergefile.ipynb   # Full 10-stage pipeline
 │
-├── Matplot-charts/                            # 14 static PNG charts
+├── Matplot-charts/                            # 14 static PNG charts (p8)
 │   ├── p8_01_kpi_summary.png
 │   ├── p8_02_channel.png
 │   ├── p8_03_pinterest.png
@@ -239,35 +196,56 @@ Campaign-Optimization-Platform/
 │   ├── p8_13_duration.png
 │   └── p8_14_location.png
 │
-├── p9_01_money_dashboard.html                 # Interactive Plotly dashboard
+├── p9_01_money_dashboard.html                 # Interactive Plotly dashboards
 ├── p9_02_pinterest_dashboard.html
 ├── p9_03_customers_dashboard.html
 ├── p9_04_models_dashboard.html
 │
-├── data/                                      # Place Social_Media_Advertising.csv here
-├── All Csv Files/                             # Intermediate pipeline CSVs (gitignored)
+├── ui/                                        # React web app (Vite + Tailwind)
+│   ├── src/
+│   │   ├── components/                        # 8 page sections
+│   │   └── App.jsx
+│   ├── public/charts/                         # Chart PNGs served statically
+│   └── vercel.json
 │
-├── SocialMedia_Campaign_Analytics.xlsx        # Excel analysis workbook
-├── SocialMedia_Campaign_Analytics_Docs.docx   # Project documentation
-├── requirements.txt                           # Python dependencies
+├── data/                                      # Place Social_Media_Advertising.csv here
+├── All Csv Files/                             # Intermediate CSVs (gitignored)
+├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## Project Status
+## Tech Stack
 
-| Deliverable | Status |
-|-------------|--------|
-| Data Cleaning | Complete |
-| EDA | Complete |
-| Statistical Testing | Complete |
-| Feature Engineering | Complete |
-| ML Models (LR, RF, GB, XGBoost, AdaBoost) | Complete |
-| Static Charts (14 PNGs) | Complete |
-| Interactive Plotly Dashboards | Complete |
-| Excel Dashboard | Complete |
+| Layer | Tools |
+|-------|-------|
+| Language | Python 3.11 |
+| Data | Pandas 2.0, NumPy |
+| Stats | SciPy (t-test, ANOVA, chi-square) |
+| ML | Scikit-learn, XGBoost, AdaBoost |
+| Visualization | Matplotlib, Seaborn, Plotly |
+| UI | React 18, Vite 5, Tailwind CSS, Lucide |
+| Deployment | Vercel |
+| Runtime | Jupyter Notebook |
 
 ---
 
-> *"5 platforms. Every rupee tracked. This is what real marketing analytics looks like."*
+## Deployment
+
+The React UI is deployed on Vercel and rebuilds automatically on every push to `main`.
+
+**Deploy your own fork:**
+1. Fork this repo on GitHub
+2. Go to [vercel.com](https://vercel.com) → New Project → Import your fork
+3. Set **Root Directory** → `ui`
+4. Leave Build Command and Output Directory as auto-detected
+5. Click Deploy
+
+---
+
+<div align="center">
+
+Made by [devxrachit](https://github.com/devxrachit) · [Live Demo](https://ui-tawny-alpha.vercel.app) · [View on GitHub](https://github.com/devxrachit/Campaign-Optimization-Platform)
+
+</div>
