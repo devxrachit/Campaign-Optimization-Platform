@@ -8,7 +8,7 @@
 
 **End-to-end ML pipeline analyzing 200,000 ad campaigns across 6 channels — from raw CSV to predictive intelligence.**
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Site-6366f1?style=for-the-badge)](https://ui-tawny-alpha.vercel.app)
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Site-6366f1?style=for-the-badge)](https://metricflow-analytics.vercel.app)
 [![GitHub](https://img.shields.io/badge/GitHub-devxrachit-181717?style=for-the-badge&logo=github)](https://github.com/devxrachit/Campaign-Optimization-Platform)
 
 <br/>
@@ -44,7 +44,7 @@ MarketPulse ingests **200,000 social media ad campaigns** spanning 6 channels (E
 
 ## Live Demo
 
-> **[https://ui-tawny-alpha.vercel.app](https://ui-tawny-alpha.vercel.app)**
+> **[https://metricflow-analytics.vercel.app](https://metricflow-analytics.vercel.app)**
 
 The React UI showcases every output of the pipeline — KPI cards, animated bar charts, a filterable chart gallery with modal zoom, ML model scorecards, and links to the 4 live Plotly dashboards.
 
@@ -246,6 +246,6 @@ The React UI is deployed on Vercel and rebuilds automatically on every push to `
 
 <div align="center">
 
-Made by [devxrachit](https://github.com/devxrachit) · [Live Demo](https://ui-tawny-alpha.vercel.app) · [View on GitHub](https://github.com/devxrachit/Campaign-Optimization-Platform)
+Made by [devxrachit](https://github.com/devxrachit) · [Live Demo](https://metricflow-analytics.vercel.app) · [View on GitHub](https://github.com/devxrachit/Campaign-Optimization-Platform)
 
 </div>
