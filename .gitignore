@@ -19,9 +19,11 @@ venv/
 .DS_Store
 Thumbs.db
 
-# Build / Node (legacy)
+# Build / Node
 node_modules/
 build/
+ui/dist/
+ui/node_modules/
 
 # GitHub Linguist overrides
 *.html linguist-detectable=false
