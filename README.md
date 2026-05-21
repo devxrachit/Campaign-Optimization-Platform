@@ -1,4 +1,4 @@
-# 📊 Social Media Campaign Analytics — MetricFlow
+# Social Media Campaign Analytics — MetricFlow
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?style=flat-square&logo=python)
 ![Power BI](https://img.shields.io/badge/Power_BI-DAX-yellow?style=flat-square)
@@ -8,42 +8,32 @@
 
 ---
 
+## Table of Contents
+
+- [What This Does](#what-this-does)
+- [Real Numbers](#real-numbers)
+- [Dataset](#dataset)
+- [Architecture](#architecture)
+- [What I Built](#what-i-built)
+- [Key Metrics](#key-metrics)
+- [Quick Start](#quick-start)
+- [Tech Stack](#tech-stack)
+- [Folder Structure](#folder-structure)
+- [Project Status](#project-status)
 
 ---
 
-## 📋 Table of Contents
+## What This Does
 
-- [What This Does](#-what-this-does)
-- [Real Numbers](#-real-numbers)
-- [Dataset](#-dataset)
-- [Architecture](#-architecture)
-- [What I Built](#-what-i-built)
-- [Key Metrics Explained](#-key-metrics-explained)
-- [Quick Start](#-quick-start)
-- [Tech Stack](#-tech-stack)
-- [Project Status](#-project-status)
- 
+End-to-end marketing analytics pipeline on real multi-platform ad campaign performance data covering Facebook, Instagram, Google, LinkedIn, and Twitter.
+
+1. **Problem** — Marketing team has no unified view of ad performance across platforms — no way to compare ROAS, CTR, or ROI across channels in one place
+2. **Solution** — Full analytics pipeline from raw campaign data → EDA → A/B testing → audience segmentation → interactive Plotly dashboards
+3. **For** — Data Analyst / Marketing Analyst / BI Analyst hiring managers looking for real campaign analytics proof
 
 ---
 
-## 🧠 What This Does
-
-End-to-end marketing analytics pipeline on real
-multi-platform ad campaign performance data covering
-Facebook, Instagram, Google, LinkedIn, and Twitter.
-
-1. **Problem** — Marketing team has no unified view of
-   ad performance across platforms — no way to compare
-   ROAS, CTR, or ROI across channels in one place
-2. **Solution** — Full analytics pipeline from raw campaign
-   data → EDA → A/B testing → audience segmentation →
-   cross-platform Power BI dashboard
-3. **For** — Data Analyst / Marketing Analyst / BI Analyst
-   hiring managers looking for real campaign analytics proof
-
----
-
-## 📊 Real Numbers
+## Real Numbers
 
 | Metric | Value |
 |--------|-------|
@@ -51,69 +41,70 @@ Facebook, Instagram, Google, LinkedIn, and Twitter.
 | Key KPIs Tracked | CTR, CPC, CPM, ROAS, ROI, Conversions |
 | Analysis Types | EDA, A/B Testing, Segmentation, Attribution |
 | ML Applied | KMeans Audience Segmentation, CTR Prediction |
-| Dashboard | Power BI with DAX measures |
-| Excel Analysis | Pivot tables + slicers |
+| Static Charts | 14 Matplotlib/Seaborn PNGs |
+| Interactive Dashboards | 4 Plotly HTML dashboards |
 
 ---
 
-## 🔢 Dataset
+## Dataset
 
 | Field | Detail |
 |-------|--------|
-| Source | [Marketing Campaign Performance — Kaggle](https://www.kaggle.com/datasets/manishabhatt22/marketing-campaign-performance-dataset) |
+| Source | Marketing Campaign Performance — Kaggle |
 | Platforms | Facebook, Instagram, Google, LinkedIn, Twitter |
 | Features | Campaign Type, Platform, Spend, Impressions, Clicks, Conversions, CTR, CPC, CPM, ROAS, ROI |
 | Use Case | Multi-channel attribution, budget optimization, audience targeting |
 
 ---
 
-## 🏗️ Architecture
+## Architecture
+
 ```
 Raw Campaign CSV (Multi-platform)
         ↓
-Data Cleaning
+p1 — Data Cleaning
   → Handle nulls and duplicates
   → Standardize platform and campaign names
   → Fix data types for spend and date columns
         ↓
-EDA
+p2 — EDA
   → CTR by platform comparison
   → ROAS by campaign type
   → Spend vs conversion scatter
   → ROI distribution across channels
-  → CPM and CPC trends over time
         ↓
-A/B Testing
-  → Ad creative performance comparison
-  → Statistical significance testing
-  → Winning variant identification
+p3 — Business Insights
+  → KPI calculations
+  → Best performers by channel, goal, segment
         ↓
-Audience Segmentation (KMeans)
-  → High ROAS segments
-  → Low CTR at-risk segments
-  → Budget efficiency clusters
+p4 — Statistical Testing
+  → T-tests, ANOVA, Chi-square
+  → Correlation and normality tests
         ↓
-CTR Prediction Model
-  → Logistic Regression baseline
-  → Feature importance analysis
+p5 — Feature Engineering
+  → ROI/engagement/spend categories
+  → Label encoding, interaction features
         ↓
-Cross-Platform Attribution
-  → First-touch vs last-touch
-  → Revenue attribution by channel
+p6/p6b — Model Building
+  → Logistic Regression, Random Forest, Gradient Boosting
+  → Leakage check (p6 vs p6b clean version)
         ↓
-Power BI Executive Dashboard
-  → Platform comparison KPI cards
-  → ROAS and ROI by campaign
-  → Budget allocation recommendations
+p7 — Boosting Models
+  → XGBoost + AdaBoost with feature importance
         ↓
-Excel Dashboard
-  → Pivot tables + slicers
-  → KPI summary sheet
+p8 — Static Charts (14 PNGs)
+  → Matplotlib + Seaborn visualizations
+        ↓
+p9 — Interactive Dashboards (4 HTML files)
+  → Plotly dashboards for Money, Pinterest, Customers, Models
+        ↓
+p10 — Master Runner
+  → One call runs the entire pipeline
 ```
 
 ---
 
-## 🔨 What I Built
+## What I Built
 
 ### 1. Data Cleaning
 - Loaded multi-platform campaign performance data
@@ -128,41 +119,36 @@ Excel Dashboard
 - Spend efficiency: revenue generated per ₹1 spent
 - Conversion funnel: Impressions → Clicks → Conversions
 - CPC and CPM trend analysis over time
-- Top performing campaigns by ROI
 
-### 3. A/B Testing
-- Compared ad creative variants for statistical significance
-- Used two-sample t-test for CTR and conversion rate
-- Identified winning ad variants per platform
-- Quantified uplift from better-performing creatives
+### 3. Statistical Testing (A/B)
+- Two-sample t-tests for CTR and conversion rate
+- ANOVA across campaign goals
+- Chi-square for categorical associations
+- Identified winning variants with statistical significance
 
 ### 4. Audience Segmentation (KMeans)
 - Clustered campaigns into performance tiers
 - High ROAS / High CTR segment — scale budget here
 - Low ROAS / High Spend segment — cut or optimize
-- Medium performance segment — A/B test candidates
 
 ### 5. CTR Prediction
 - Features: platform, campaign type, spend, impressions, CPM
-- Logistic Regression for binary CTR above/below median
-- Feature importance: which factors drive click-through
+- Logistic Regression, Random Forest, Gradient Boosting, XGBoost, AdaBoost
+- Feature importance analysis
 
-### 6. Power BI Dashboard
-- Platform-level KPI cards (CTR, ROAS, ROI, CPC, CPM)
-- Campaign type performance comparison bar charts
-- Spend vs ROAS scatter with platform color coding
-- Budget allocation recommendation visuals
-- Time-series trend for weekly campaign performance
-- All DAX measures for calculated KPIs
+### 6. Interactive Dashboards
+- `p9_01_money_dashboard.html` — Revenue and spend analysis
+- `p9_02_pinterest_dashboard.html` — Pinterest-specific metrics
+- `p9_03_customers_dashboard.html` — Audience segmentation view
+- `p9_04_models_dashboard.html` — ML model comparison
 
 ### 7. Excel Analysis
 - Pivot tables for platform × campaign type breakdown
-- Slicers for date range, platform, and campaign type
 - KPI summary sheet with conditional formatting
 
 ---
 
-## 📐 Key Metrics
+## Key Metrics
 
 | Metric | Formula | What It Tells You |
 |--------|---------|------------------|
@@ -175,73 +161,69 @@ Excel Dashboard
 
 ---
 
-## ⚡ Quick Start
+## Quick Start
 
 **Prerequisites:** Python 3.11+, Git
+
 ```bash
 # 1. Clone the repo
-git clone https://github.com/Alphax81/social-media-campaign-analytics.git
-cd social-media-campaign-analytics
+git clone https://github.com/devxrachit/Campaign-Optimization-Platform.git
+cd Campaign-Optimization-Platform
 
 # 2. Create virtual environment
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate        # Mac/Linux
+venv\Scripts\activate           # Windows
 
 # 3. Install dependencies
 pip install -r requirements.txt
 
 # 4. Download dataset from Kaggle
 # https://www.kaggle.com/datasets/manishabhatt22/marketing-campaign-performance-dataset
-# Place CSV in data/raw/
+# Rename the file to: Social_Media_Advertising.csv
+# Place it in the data/ folder
 
-# 5. Run notebooks in order
-jupyter notebook notebooks/
+# 5. Launch Jupyter and open the notebook
+jupyter notebook notebook/Social-ads-pipeline-mergefile.ipynb
 
-# Notebook order:
-# 01_data_cleaning.ipynb
-# 02_eda.ipynb
-# 03_ab_testing.ipynb
-# 04_audience_segmentation.ipynb
-# 05_ctr_prediction.ipynb
-# 06_attribution.ipynb
+# Run all cells top to bottom — or use the p10 Master Runner cell at the bottom
+# to execute the full pipeline in one shot
 ```
+
+**To view dashboards without running the notebook:**
+Open any of the HTML files directly in your browser:
+- `p9_01_money_dashboard.html`
+- `p9_02_pinterest_dashboard.html`
+- `p9_03_customers_dashboard.html`
+- `p9_04_models_dashboard.html`
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Tool | Purpose |
 |------|---------|
 | Python 3.11 | Core language |
 | Pandas + NumPy | Data cleaning and manipulation |
-| Matplotlib + Seaborn | Static EDA charts |
-| Plotly | Interactive visualizations |
+| Matplotlib + Seaborn | Static EDA charts (14 PNGs) |
+| Plotly | Interactive dashboards (4 HTML files) |
 | Scikit-learn | KMeans segmentation, CTR prediction |
-| Statsmodels | A/B test significance testing |
-| Power BI (DAX) | Cross-platform BI dashboard |
+| XGBoost + AdaBoost | Boosting model comparison |
+| Scipy | Statistical testing (t-test, ANOVA, chi-square) |
 | Microsoft Excel | Pivot tables + KPI summary |
 | Git | Version control |
 
 ---
 
-## 📁 Folder Structure
+## Folder Structure
+
 ```
-Social-Media-Ads-Analysis/
+Campaign-Optimization-Platform/
 │
-├── notebooks/
-│   ├── pipeline_1.py        # Load & clean raw data
-│   ├── pipeline_2.py        # Exploratory data analysis
-│   ├── pipeline_3.py        # Business insights
-│   ├── pipeline_4.py        # Statistical testing
-│   ├── pipeline_5.py        # Feature engineering
-│   ├── pipeline_6.py        # Model building (with leakage check)
-│   ├── pipeline_6b.py       # Model building (clean, no leakage)
-│   ├── pipeline_7.py        # XGBoost + AdaBoost
-│   ├── pipeline_8.py        # Static matplotlib charts (14 PNGs)
-│   ├── pipeline_9.py        # Interactive Plotly dashboards (4 HTML)
-│   └── pipeline_10.py       # Master runner — one line runs everything             - Here All in one Single FIle So you Can Run Easily .
+├── notebook/
+│   └── Social-ads-pipeline-mergefile.ipynb   # Full pipeline (all stages merged)
 │
-├── charts/
+├── Matplot-charts/                            # 14 static PNG charts
 │   ├── p8_01_kpi_summary.png
 │   ├── p8_02_channel.png
 │   ├── p8_03_pinterest.png
@@ -257,31 +239,35 @@ Social-Media-Ads-Analysis/
 │   ├── p8_13_duration.png
 │   └── p8_14_location.png
 │
-├── social-ads-dashboard/    # React web dashboard
-│   ├── src/
-│   │   └── App.js
-│   └── package.json
+├── p9_01_money_dashboard.html                 # Interactive Plotly dashboard
+├── p9_02_pinterest_dashboard.html
+├── p9_03_customers_dashboard.html
+├── p9_04_models_dashboard.html
 │
+├── data/                                      # Place Social_Media_Advertising.csv here
+├── All Csv Files/                             # Intermediate pipeline CSVs (gitignored)
+│
+├── SocialMedia_Campaign_Analytics.xlsx        # Excel analysis workbook
+├── SocialMedia_Campaign_Analytics_Docs.docx   # Project documentation
+├── requirements.txt                           # Python dependencies
 └── README.md
 ```
 
 ---
 
-## 📊 Project Status
+## Project Status
 
 | Deliverable | Status |
 |-------------|--------|
-| Data Cleaning | ✅ Complete |
-| EDA | ✅ Complete |
-| A/B Testing | ✅ Complete |
-| Audience Segmentation | ✅ Complete |
-| CTR Prediction | ✅ Complete |
-| Cross-Platform Attribution | ✅ Complete |
-| Power BI Dashboard | ✅ Complete |
-| Excel Dashboard | ✅ Complete |
+| Data Cleaning | Complete |
+| EDA | Complete |
+| Statistical Testing | Complete |
+| Feature Engineering | Complete |
+| ML Models (LR, RF, GB, XGBoost, AdaBoost) | Complete |
+| Static Charts (14 PNGs) | Complete |
+| Interactive Plotly Dashboards | Complete |
+| Excel Dashboard | Complete |
 
 ---
 
-> *"5 platforms. Every rupee tracked.*
-> *This is what real marketing analytics looks like."*
-```
+> *"5 platforms. Every rupee tracked. This is what real marketing analytics looks like."*
